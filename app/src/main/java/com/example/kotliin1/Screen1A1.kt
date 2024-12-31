@@ -36,7 +36,6 @@ class Screen1A1 : AppCompatActivity() {
             }
             else{
                 Toast.makeText(this, "Please add valid details", Toast.LENGTH_LONG).show()
-
             }
         }
     }
@@ -49,29 +48,22 @@ class Screen1A1 : AppCompatActivity() {
 
         if(userName.isEmpty()){
             userInput.error = "Please enter user name"
-
         }
          if(emailText.isEmpty()){
             email.error = "Please enter email"
         }
         else if (!android.util.Patterns.EMAIL_ADDRESS.matcher(emailText).matches()) {
             email.error = "Invalid email address"
-
         }
          if(passwordText.isEmpty() || passwordText.length<8){
             password.error = "Minimum length is 8"
-
         }
          if(contactNumberText.isEmpty()){
             contactNumber.error = "Contact number is required"
-
         }
         else if (!contactNumberText.matches("^[0-9]+$".toRegex()) || contactNumberText.length != 10) {
             contactNumber.error = "Invalid contact number"
-
         }
-
         return userInput.error.isNullOrBlank() && email.error.isNullOrBlank() && password.error.isNullOrBlank() && contactNumber.error.isNullOrBlank()
-
     }
 }
