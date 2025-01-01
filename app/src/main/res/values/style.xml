@@ -2,7 +2,13 @@
 <resources>
     <!-- Custom Toolbar Title Text Appearance -->
     <style name="ToolbarTitleText" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="android:textSize">20sp</item> <!-- Change font size -->
-        <item name="android:textColor">#000000</item> <!-- Title color -->
+        <item name="android:textSize">18sp</item> <!-- Change font size -->
+        <item name="android:textColor">#000000</item>
+        <item name="android:textStyle">bold</item>
+        <!-- Title color -->
+    </style>
+
+    <style name="Button.green" parent="ThemeOverlay.AppCompat">
+        <item name="colorAccent">#1dc249</item>
     </style>
 </resources>

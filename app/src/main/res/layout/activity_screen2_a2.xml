@@ -22,8 +22,6 @@
             android:layout_height="35dp"
             android:layout_gravity="start|center_vertical"
             android:src="@drawable/login" />
-
-        <!-- Title -->
         <TextView
             android:id="@+id/toolbar_title"
             android:layout_width="wrap_content"
@@ -31,49 +29,157 @@
             android:layout_marginStart="30dp"
             android:text="@string/login"
             android:textColor="@android:color/black"
-            android:textSize="18sp"
-            android:textStyle="normal" />
+            android:textSize="16sp"/>
     </androidx.appcompat.widget.Toolbar>
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    tools:ignore="MissingConstraints"
-    android:layout_weight="1"
-    android:padding="10dp"
->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        tools:ignore="MissingConstraints"
+        android:layout_weight="1"
+        android:padding="10dp"
+        android:orientation="vertical"
+    >
     <androidx.constraintlayout.widget.ConstraintLayout
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/editText1"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:hint="@string/http_192_168_15_64"
             android:padding="10dp"
             android:inputType="text"
-            android:background="@drawable/search_input_background"
+            android:background="@drawable/input_back"
             android:layout_marginEnd="10dp"
             android:autofillHints=""
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/btn_search"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:textSize="13sp"/>
 
         <ImageView
             android:id="@+id/btn_search"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
             android:background="@drawable/rounded_background"
             android:clickable="true"
             android:focusable="true"
             android:padding="12dp"
-            android:src="@drawable/login"
+            android:src="@drawable/search"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:background="@drawable/search_input_background">
+            <EditText
+                android:hint="@string/password"
+                android:padding="10dp"
+                android:inputType="text"
+                android:layout_weight="1"
+                android:layout_height="45dp"
+                android:layout_width="0dp"
+                android:background="@null"
+                android:autofillHints=""
+                android:textSize="13sp"/>
 
-</LinearLayout>
+            <ImageView
+                android:id="@+id/btn_search2"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="12dp"
+                android:layout_gravity="center"
+                android:src="@drawable/down"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/info"
+                android:layout_gravity="center"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#B3B3B3"
+                android:textSize="12sp"
+                android:text="@string/password_warning"/>
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:text="admin@cpi.com"
+            android:layout_marginVertical="5dp"
+            android:background="@drawable/login_shape_2"
+            android:clickable="true"
+            android:id="@+id/otp1"
+            android:padding="12dp"
+            android:focusable="true" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:background="@drawable/login_shape_2"
+            android:padding="12dp"
+            android:layout_marginVertical="5dp"
+            android:id="@+id/otp2"
+            android:text="Admin@123"
+            android:clickable="true"
+            android:focusable="true"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:text="9a11790b3456QWfkjrj345sdfg"
+            android:layout_marginVertical="5dp"
+            android:background="@drawable/login_shape_2"
+            android:id="@+id/otp3"
+            android:padding="12dp"
+            android:clickable="true"
+            android:focusable="true"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:id="@+id/otp4"
+            android:text="QWQDXACW34234SFsetraQWE"
+            android:background="@drawable/login_shape_2"
+            android:layout_marginVertical="5dp"
+            android:padding="12dp"
+            android:clickable="true"
+            android:focusable="true"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="250dp"
+            android:id="@+id/btnAuth"
+            android:layout_height="45dp"
+            android:textSize="17sp"
+            android:textColor="@color/white"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center_horizontal"
+            android:textAllCaps="false"
+            android:text="@string/authorize"
+            android:background="@drawable/btn" />
+
+    </LinearLayout>
 </LinearLayout>
