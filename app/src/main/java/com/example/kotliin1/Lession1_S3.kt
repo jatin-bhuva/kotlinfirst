@@ -1,5 +1,6 @@
 package com.example.kotliin1
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -43,7 +44,10 @@ class Lession1_S3 : AppCompatActivity() {
         }
         btnBottom.setOnClickListener{
             L1.visibility = if(L1.visibility == View.VISIBLE) View.GONE else View.VISIBLE;
-            R1.visibility = if(R1.visibility == View.VISIBLE) View.GONE else View.VISIBLE
+            R1.visibility = if(R1.visibility == View.VISIBLE) View.GONE else View.VISIBLE;
+
+            val i = Intent(applicationContext, Lession2::class.java)
+            startActivity(i)
         }
     }
 

@@ -13,8 +13,14 @@
         android:theme="@style/Theme.Kotliin1"
         tools:targetApi="31">
         <activity
+            android:name=".Lession2S2"
+            android:exported="false" />
+        <activity
+            android:name=".Lession2"
+            android:exported="false" />
+        <activity
             android:name=".Lession1_S3"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,9 +29,7 @@
         </activity>
         <activity
             android:name=".Screen2A1"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".Screen1A1"
             android:exported="true"
