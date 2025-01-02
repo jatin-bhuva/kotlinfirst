@@ -54,4 +54,5 @@
     <string name="http_192_168_15_64">http://192.168.15.64</string>
     <string name="password_warning">By using Grant Type Password you will not be use User Management</string>
     <string name="authorize">Authorize</string>
+    <string name="bottom">Bottom</string>
 </resources>

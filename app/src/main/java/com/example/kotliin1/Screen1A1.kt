@@ -12,7 +12,11 @@ import androidx.core.view.WindowInsetsCompat
 
 class Screen1A1 : AppCompatActivity() {
 
-
+    val userInput: EditText = findViewById<EditText>(R.id.user_in)
+    val email = findViewById<EditText>(R.id.email_in)
+    val password = findViewById<EditText>(R.id.pass_in)
+    val contactNumber = findViewById<EditText>(R.id.contact_in)
+    val nextBtn = findViewById<Button>(R.id.next_btn)
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -23,11 +27,7 @@ class Screen1A1 : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        val userInput = findViewById<EditText>(R.id.user_in)
-        val email = findViewById<EditText>(R.id.email_in)
-        val password = findViewById<EditText>(R.id.pass_in)
-        val contactNumber = findViewById<EditText>(R.id.contact_in)
-        val nextBtn = findViewById<Button>(R.id.next_btn)
+
 
         nextBtn?.setOnClickListener(){
             val valid  = validateInputs(userInput, email, password, contactNumber)
