@@ -22,7 +22,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Top"
+            android:text="@string/top"
             android:textColor="@color/black"
             android:gravity="center_horizontal|center_vertical"/>
 
@@ -43,7 +43,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Center"
+            android:text="@string/center"
             android:textColor="@color/black"
             android:gravity="center_horizontal|center_vertical"/>
 
@@ -80,7 +80,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_vertical|center_horizontal"
-            android:text="L1" />
+            android:text="@string/l1" />
     </LinearLayout>
 
     <LinearLayout
@@ -101,7 +101,7 @@
             android:layout_width="33dp"
             android:layout_height="wrap_content"
             android:gravity="center_vertical|center_horizontal"
-            android:text="R1" />
+            android:text="@string/r1" />
     </LinearLayout>
 
     <LinearLayout
@@ -121,7 +121,7 @@
             android:layout_width="33dp"
             android:layout_height="38dp"
             android:gravity="center_vertical|center_horizontal"
-            android:text="L2" />
+            android:text="@string/l2" />
     </LinearLayout>
 
     <LinearLayout
@@ -142,7 +142,7 @@
             android:layout_width="33dp"
             android:layout_height="38dp"
             android:gravity="center_vertical|center_horizontal"
-            android:text="R2" />
+            android:text="@string/r2" />
     </LinearLayout>
 
 

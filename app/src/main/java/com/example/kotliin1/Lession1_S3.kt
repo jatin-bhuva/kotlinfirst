@@ -11,6 +11,14 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
 
 class Lession1_S3 : AppCompatActivity() {
+
+    private lateinit var  btnTop :LinearLayout
+    private lateinit var btnCenter:LinearLayout
+    private lateinit var btnBottom :Button
+    private lateinit var L1: LinearLayout
+    private lateinit var L2 :LinearLayout
+    private lateinit var R1 :LinearLayout
+    private lateinit var R2 :LinearLayout
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -20,13 +28,8 @@ class Lession1_S3 : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        val btnTop = findViewById<LinearLayout>(R.id.btnTop);
-        val btnCenter = findViewById<LinearLayout>(R.id.view);
-        val btnBottom = findViewById<Button>(R.id.btnBottom);
-        val L1 = findViewById<LinearLayout>(R.id.linearLayout);
-        val L2 = findViewById<LinearLayout>(R.id.linearLayout3);
-        val R1 = findViewById<LinearLayout>(R.id.linearLayout2);
-        val R2 = findViewById<LinearLayout>(R.id.linearLayout4);
+        initializeVariables()
+
         btnTop.setOnClickListener {
             L2.visibility = if (L2.visibility == View.VISIBLE) View.GONE else View.VISIBLE
             R2.visibility =  if (R2.visibility == View.VISIBLE) View.GONE else View.VISIBLE
@@ -42,5 +45,15 @@ class Lession1_S3 : AppCompatActivity() {
             L1.visibility = if(L1.visibility == View.VISIBLE) View.GONE else View.VISIBLE;
             R1.visibility = if(R1.visibility == View.VISIBLE) View.GONE else View.VISIBLE
         }
+    }
+
+    private fun initializeVariables(){
+         btnTop = findViewById(R.id.btnTop);
+         btnCenter = findViewById(R.id.view);
+         btnBottom = findViewById(R.id.btnBottom);
+         L1 = findViewById(R.id.linearLayout);
+         L2 = findViewById(R.id.linearLayout3);
+         R1 = findViewById(R.id.linearLayout2);
+         R2 = findViewById(R.id.linearLayout4);
     }
 }
