@@ -23,15 +23,11 @@ class Lession2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
-
         enableEdgeToEdge()
         setContentView(R.layout.activity_lession2)
-// Initialize components before any lifecycle event is logged
         initializeComponents()
-
-        // Log onCreate event after initialization
         saveLifeCycleEvent("onCreate")
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -41,7 +37,7 @@ class Lession2 : AppCompatActivity() {
         nextBtn.setOnClickListener{
             val logText = lifecycleLog.joinToString("\n") //
             val i = Intent(applicationContext, Lession2S2::class.java)
-            intent.putExtra("lifecycleLog", logText)
+            i.putExtra("lifecycleLog", logText)
             startActivity(i)
         }
     }
@@ -87,14 +83,10 @@ class Lession2 : AppCompatActivity() {
         val timestamp = dateFormat.format(Date())
         val logEntry = "$event at $timestamp"
         lifecycleLog.add(logEntry)
-        Log.d("LifecycleLog", logEntry)
-
-        // Update the TextView after saving the event
-       updateLifecycleLogTextView()
+        updateLifecycleLogTextView()
     }
-
     private fun updateLifecycleLogTextView() {
-       val logText = lifecycleLog.joinToString("\n") // Join all log entries with line breaks
-        logTextView.text = logText // Set the text of the TextView
+       val logText = lifecycleLog.joinToString("\n")
+        logTextView.text = logText
     }
 }

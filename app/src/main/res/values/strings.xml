@@ -55,23 +55,4 @@
     <string name="password_warning">By using Grant Type Password you will not be use User Management</string>
     <string name="authorize">Authorize</string>
     <string name="bottom">Bottom</string>
-    <string name="top">Top</string>
-    <string name="center">Center</string>
-    <string name="l1">L1</string>
-    <string name="r1">R1</string>
-    <string name="l2">L2</string>
-    <string name="r2">R2</string>
-    <string name="hello_world">Hello World!</string>
-    <string name="admin_cpi_com">admin@cpi.com</string>
-    <string name="admin_123">Admin@123</string>
-    <string name="_9a11790b3456qwfkjrj345sdfg">9a11790b3456QWfkjrj345sdfg</string>
-    <string name="qwqdxacw34234sfsetraqwe">QWQDXACW34234SFsetraQWE</string>
-    <string name="validation_success">Validation Successful</string>
-    <string name="validation_fail">Please add valid details</string>
-    <string name="enter_user_name">Please enter user name</string>
-    <string name="enter_email">Please enter email</string>
-    <string name="invalid_email">Invalid email address</string>
-    <string name="pass_length">Minimum length is 8</string>
-    <string name="enter_contact">Contact number is required</string>
-    <string name="invalid_contact">Invalid contact number</string>
 </resources>
