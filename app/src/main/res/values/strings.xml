@@ -74,4 +74,18 @@
     <string name="pass_length">Minimum length is 8</string>
     <string name="enter_contact">Contact number is required</string>
     <string name="invalid_contact">Invalid contact number</string>
+    <string name="home">Home</string>
+    <string name="add_book">Add Book</string>
+    <string name="item">Item</string>
+    <string name="book_name">Book Name</string>
+    <string name="author_name">Author Name</string>
+    <string name="fiction">Fiction</string>
+    <string name="non_fiction">Non-Fiction</string>
+    <string name="age_group">Age Group</string>
+    <string name="kids">Kids</string>
+    <string name="teens">Teens</string>
+    <string name="adults">Adults</string>
+    <string name="select_date_of_launch">Select Date of Launch</string>
+    <string name="submit">Submit</string>
+    <string name="search_book">Search by book name</string>
 </resources>
