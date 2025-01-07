@@ -9,14 +9,22 @@
         android:id="@+id/authorEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter Author Name"
+        android:hint="@string/enter_author_name"
         android:inputType="text" />
-
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="@dimen/dp10"
+       android:text="@string/genre"/>
     <Spinner
         android:id="@+id/genreSpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_marginTop="@dimen/dp10"
+        android:layout_height="wrap_content"
+        android:text="@string/fiction_type"/>
     <Spinner
         android:id="@+id/fictionTypeSpinner"
         android:layout_width="match_parent"

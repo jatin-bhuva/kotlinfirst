@@ -21,6 +21,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.json.JSONArray
+import java.util.UUID
 
 class Lesson3S1 : AppCompatActivity() {
 
@@ -30,9 +31,11 @@ class Lesson3S1 : AppCompatActivity() {
         val genre: String,
         val fictionType: String,
         val launchDate: String,
-        val ageGroup: List<String>
+        val ageGroup: List<String>,
+        val id: String
     )
 
+    lateinit var booksList: List<Book>
     private lateinit var bookRecyclerView: RecyclerView
     private lateinit var bookSearchView: androidx.appcompat.widget.SearchView
     private lateinit var bookAdapter: BookAdapter
@@ -44,18 +47,19 @@ class Lesson3S1 : AppCompatActivity() {
         window.statusBarColor = resources.getColor(android.R.color.white, theme)
         setContentView(R.layout.activity_lesson3_s1)
         initializeVariables()
-        getBooksFromSharedPreferences()
+        booksList = getBooksFromSharedPreferences()
         val toolbar: androidx.appcompat.widget.Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        // search functionality
         bookSearchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
             androidx.appcompat.widget.SearchView.OnQueryTextListener {
-
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return false
             }
@@ -66,7 +70,8 @@ class Lesson3S1 : AppCompatActivity() {
                 return true
             }
         })
-        val booksList = getBooksFromSharedPreferences()
+
+        // sort functionality
         sortBy.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parentView: AdapterView<*>, view: View?, position: Int, id: Long
@@ -83,6 +88,7 @@ class Lesson3S1 : AppCompatActivity() {
             override fun onNothingSelected(parentView: AdapterView<*>) {}
         }
 
+        // open filter dialog
         filterBtn.setOnClickListener {
             openFilterDialog(booksList)
         }
@@ -114,25 +120,29 @@ class Lesson3S1 : AppCompatActivity() {
 
     private fun getBooksFromSharedPreferences(): List<Book> {
         val sharedPreferences = getSharedPreferences("BooksData", MODE_PRIVATE)
-        val booksList = mutableListOf<Book>()
+        val booksList1 = mutableListOf<Book>()
         val booksArray = JSONArray(sharedPreferences.getString("bookList", "[]"))
 
         for (i in 0 until booksArray.length()) {
             val bookObject = booksArray.getJSONObject(i)
             val book = Book(bookName = bookObject.getString("bookName"),
                 authorName = bookObject.getString("authorName"),
+                id = bookObject.getString("id"),
                 genre = bookObject.getString("genre"),
                 fictionType = bookObject.getString("fictionType"),
                 launchDate = bookObject.getString("launchDate"),
                 ageGroup = List(bookObject.getJSONArray("ageGroup").length()) { index ->
                     bookObject.getJSONArray("ageGroup").getString(index)
                 })
-            booksList.add(book)
+            booksList1.add(book)
         }
-        bookAdapter = BookAdapter(booksList)
+        bookAdapter = BookAdapter(booksList1) { book ->
+            onBookItemClick(book)
+        }
         bookRecyclerView.layoutManager = LinearLayoutManager(this)
         bookRecyclerView.adapter = bookAdapter
-        return booksList
+        booksList = booksList1
+        return booksList1
     }
 
     private fun initializeVariables() {
@@ -145,7 +155,6 @@ class Lesson3S1 : AppCompatActivity() {
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, genres)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         sortBy.adapter = adapter
-
     }
 
     private fun openFilterDialog(booksList: List<Book>) {
@@ -184,5 +193,17 @@ class Lesson3S1 : AppCompatActivity() {
             }.setNegativeButton("Cancel") { dialog, _ -> dialog.dismiss() }
 
         builder.create().show()
+    }
+
+    private fun onBookItemClick(book: Lesson3S1.Book) {
+        val intent = Intent(this, Lesson3S3::class.java)
+        intent.putExtra("BOOK_NAME", book.bookName)
+        intent.putExtra("AUTHOR_NAME", book.authorName)
+        intent.putExtra("GENRE", book.genre)
+        intent.putExtra("FICTION_TYPE", book.fictionType)
+        intent.putExtra("LAUNCH_DATE", book.launchDate)
+        intent.putExtra("BOOK_ID", book.id)
+        intent.putStringArrayListExtra("AGE_GROUPS", ArrayList(book.ageGroup))
+        startActivity(intent)
     }
 }

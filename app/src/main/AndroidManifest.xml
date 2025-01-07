@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Kotliin1"
         tools:targetApi="31">
         <activity
+            android:name=".Lesson3S3"
+            android:exported="false" />
+        <activity
             android:name=".Lesson3S2"
             android:exported="false" />
         <activity
@@ -26,7 +29,7 @@
         </activity>
         <activity
             android:name=".Lession1_S3"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".Screen2A1"
             android:exported="true" />

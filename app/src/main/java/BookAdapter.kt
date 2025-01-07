@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.kotliin1.Lesson3S1
 import com.example.kotliin1.R
 
-class BookAdapter(private var bookList: List<Lesson3S1.Book>) :
+class BookAdapter(private var bookList: List<Lesson3S1.Book>, private val onItemClicked:(Lesson3S1.Book)->Unit) :
     RecyclerView.Adapter<BookAdapter.BookViewHolder>() {
     inner class BookViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val bookNameText: TextView = itemView.findViewById(R.id.book_name)
@@ -22,6 +22,10 @@ class BookAdapter(private var bookList: List<Lesson3S1.Book>) :
         val book = bookList[position]
         holder.bookNameText.text = book.bookName
         holder.authorNameText.text = book.authorName
+
+        holder.itemView.setOnClickListener{
+            onItemClicked(book)
+        }
     }
 
     override fun getItemCount(): Int {

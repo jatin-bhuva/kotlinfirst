@@ -88,4 +88,12 @@
     <string name="select_date_of_launch">Select Date of Launch</string>
     <string name="submit">Submit</string>
     <string name="search_book">Search by book name</string>
+    <string name="genre">Genre</string>
+    <string name="fiction_type">Fiction type</string>
+    <string name="launch_of_date">Launch of date</string>
+    <string name="date_of_launch">Date of launch</string>
+    <string name="book_details">Book Details</string>
+    <string name="edit">Edit</string>
+    <string name="enter_author_name">Enter Author Name</string>
+    <string name="filter">Filter</string>
 </resources>
