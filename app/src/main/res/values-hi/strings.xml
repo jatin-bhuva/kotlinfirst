@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">आपका ऐप नाम</string>
+    <string name="full_name">पूरा नाम</string>
+    <string name="phone_number">फ़ोन नंबर</string>
+    <string name="country">देश</string>
+    <string name="address">पता</string>
+    <string name="personal_details">व्यक्तिगत विवरण:</string>
+    <string name="date_of_birth">जन्मतिथि</string>
+    <string name="hobbies">शौक</string>
+    <string name="playing">खेलना</string>
+    <string name="reading">पढ़ना</string>
+    <string name="exploring">तलाश</string>
+    <string name="male">पुरुष</string>
+    <string name="female">महिला</string>
+    <string name="gender">लिंग</string>
+    <string name="education_details">शिक्षा विवरण:</string>
+    <string name="ssc_hsc">एसएससी/एचएससी</string>
+    <string name="graduation">स्नातक</string>
+    <string name="percentage">प्रतिशतता</string>
+    <string name="_0" translatable="false">0%</string>
+    <string name="email">ईमेल</string>
+    <string name="hsc">एचएससी</string>
+    <string name="ssc">एसएससी</string>
+    <string name="bca">बीसीए</string>
+    <string name="bcom">बी.कॉम</string>
+    <string name="validate">सत्यापित करें</string>
+    <!-- Add more strings for the app -->
+</resources>
