@@ -7,6 +7,7 @@ import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
 import android.text.InputType
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -90,12 +91,20 @@ class Lesson4S1 : AppCompatActivity() {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 selectedPercentageUG.text = "$progress%"
             }
+
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
             }
+
             override fun onStopTrackingTouch(seekBar: SeekBar?) {
             }
         })
 
+        autoComplete1.setOnItemClickListener { parent, view, position, id ->
+            autoComplete1.error = null
+        }
+        autoComplete2.setOnItemClickListener { parent, view, position, id ->
+            autoComplete2.error = null
+        }
         dateOfBirth.setOnClickListener() {
             datePicker.show(supportFragmentManager, "DATE_PICKER")
             datePicker.addOnPositiveButtonClickListener {
@@ -116,7 +125,6 @@ class Lesson4S1 : AppCompatActivity() {
                     when (position) {
                         0 -> changeLanguage(this@Lesson4S1, "en")
                         1 -> changeLanguage(this@Lesson4S1, "hi")
-
                     }
                 }
             }
@@ -125,8 +133,6 @@ class Lesson4S1 : AppCompatActivity() {
             }
         }
         validateButton.setOnClickListener {
-
-
             val userName = fullName.text.toString().trim()
             val emailText = email.text.toString().trim()
             val contactNumberText = phoneNumber.text.toString().trim()
@@ -136,10 +142,8 @@ class Lesson4S1 : AppCompatActivity() {
             fun setError(field: EditText, errorMessage: String) {
                 field.error = errorMessage
             }
-
             when {
                 userName.isEmpty() -> setError(fullName, getString(R.string.enter_user_name))
-
                 contactNumberText.isEmpty() -> phoneNumber.setError(getString(R.string.enter_contact))
                 !contactNumberText.matches("^[0-9]+$".toRegex()) || contactNumberText.length != 10 -> setError(
                     phoneNumber,
@@ -158,10 +162,18 @@ class Lesson4S1 : AppCompatActivity() {
 
                 dateOfBirthText.isEmpty() -> setError(dateOfBirth, getString(R.string.enter_email))
 
-                else -> setError(dateOfBirth, "")
+                autoComplete1.text.toString() == getString(R.string.ssc_hsc) -> setError(
+                    autoComplete1,
+                    getString(R.string.choose_option)
+                )
 
+                autoComplete2.text.toString() == getString(R.string.graduation) -> setError(
+                    autoComplete2,
+                    getString(R.string.choose_option)
+                )
+
+                else -> {}
             }
-
         }
     }
 

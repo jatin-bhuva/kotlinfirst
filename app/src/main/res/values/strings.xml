@@ -96,6 +96,7 @@
     <string name="graduation">Graduation</string>
     <string name="percentage">Percentage</string>
     <string name="_0" translatable="false">0%</string>
+    <string name="choose_option"  translatable="false">Please choose option</string>
 
         <string-array name="language_options">
             <item>English</item>
