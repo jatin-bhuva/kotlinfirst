@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools" >
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
+    <uses-permission
+        android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+    <uses-permission
+        android:name="android.permission.READ_MEDIA_IMAGES"
+        tools:ignore="SelectedPhotoAccess" />
 
     <application
         android:allowBackup="true"
@@ -11,9 +22,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Kotliin1"
-        tools:targetApi="31">
+        tools:targetApi="31" >
         <activity
-            android:name=".Lession1_S3"
+            android:name=".Lesson6S2"
+            android:exported="false" />
+        <activity
+            android:name=".Lesson6S1"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,10 +36,11 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".Lession1_S3"
+            android:exported="true" />
+        <activity
             android:name=".Screen2A1"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".Screen1A1"
             android:exported="true"
