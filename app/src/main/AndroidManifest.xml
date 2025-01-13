@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,20 +15,47 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Kotliin1"
         tools:targetApi="31">
+        <receiver
+            android:name=".BatteryReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".MyService"
+            android:enabled="true"
+            android:exported="true" />
+
         <activity
-            android:name=".Lession1_S3"
-            android:exported="true" >
+            android:name=".Lesson5S2"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="${google_api_key}" />
+
+        <activity
+            android:name=".Lesson5S1"
+            android:exported="true"
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
+            android:name=".Lesson5Map"
+            android:exported="true"
+            android:theme="@style/Theme.Kotliin1" />
+        <activity
+            android:name=".Lession1_S3"
+            android:exported="true" />
+        <activity
             android:name=".Screen2A1"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".Screen1A1"
             android:exported="true"

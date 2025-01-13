@@ -74,4 +74,16 @@
     <string name="pass_length">Minimum length is 8</string>
     <string name="enter_contact">Contact number is required</string>
     <string name="invalid_contact">Invalid contact number</string>
+    <string name="home">Home</string>
+    <string name="add_location">Add location</string>
+    <string name="confirm_location">Confirm Location</string>
+    <string name="latitude">Latitude</string>
+    <string name="longitude">Longitude</string>
+    <string name="value">Value</string>
+    <string name="city">City</string>
+    <string name="city_label">City: %1$s</string>
+    <string name="temperature_label">Temperature: %.2f°C</string>
+    <string name="humidity_label">Humidity: %d%%</string>
+    <string name="wind_label">Wind Speed: %.2f m/s</string>
+    <string name="weather">Weather</string>
 </resources>
