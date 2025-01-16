@@ -2,11 +2,16 @@ package com.example.kotliin1
 
 import android.content.Intent
 import android.content.SharedPreferences
+import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.GridLayoutManager
@@ -33,6 +38,11 @@ class Lesson6S1 : BaseActivity() {
 
         initializeVariables()
         displayImages(selectedFolder)
+        if (isPermissionGranted()) {
+            accessMediaFiles()
+        } else {
+            requestPermission()
+        }
     }
 
     private fun initializeVariables() {
@@ -81,4 +91,59 @@ class Lesson6S1 : BaseActivity() {
         displayImages(selectedFolder)
         super.onResume()
     }
+
+    private fun isPermissionGranted(): Boolean {
+        val permissionStatus = ContextCompat.checkSelfPermission(
+            this,
+            android.Manifest.permission.READ_EXTERNAL_STORAGE
+        )
+        return permissionStatus == PackageManager.PERMISSION_GRANTED
+    }
+
+    private fun requestPermission() {
+        ActivityCompat.requestPermissions(
+            this,
+            arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE),
+            100
+        )
+    }
+
+    private fun accessMediaFiles() {
+        Toast.makeText(this, getString(R.string.accessing_photos), Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+
+        if (requestCode == 100) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                accessMediaFiles()
+            } else {
+                if (shouldShowRequestPermissionRationale(android.Manifest.permission.READ_EXTERNAL_STORAGE)) {
+                    Toast.makeText(
+                        this,
+                        R.string.permission_denied_trying_again,
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    requestPermission()
+                } else {
+                    Toast.makeText(this, R.string.please_accept_permission, Toast.LENGTH_SHORT)
+                        .show()
+                    openAppSettings()
+                }
+            }
+        }
+    }
+
+    private fun openAppSettings() {
+        val intent = Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+        val uri = Uri.fromParts("package", packageName, null)
+        intent.data = uri
+        startActivity(intent)
+    }
+
 }

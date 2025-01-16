@@ -87,5 +87,8 @@
     <string name="Green">Green</string>
     <string name="Red">Red</string>
     <string name="White">White</string>
+    <string name="accessing_photos">"Accessing media files"</string>
+    <string name="permission_denied_trying_again">Permission denied. Trying again…</string>
+    <string name="please_accept_permission">Permission denied. Please enable it in settings.</string>
 
 </resources>
