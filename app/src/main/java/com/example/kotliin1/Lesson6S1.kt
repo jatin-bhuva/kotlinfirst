@@ -34,6 +34,7 @@ class Lesson6S1 : AppCompatActivity() {
         imageListView = findViewById(R.id.photo_list)
         toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
     }
 
     private fun displayImages(folderPath: String) {
