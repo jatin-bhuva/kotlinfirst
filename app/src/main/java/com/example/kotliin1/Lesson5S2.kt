@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.bumptech.glide.Glide
+import com.example.kotliin1.util.Constant
 import com.example.kotliin1.util.WeatherResponse
 import com.google.gson.Gson
 import kotlin.properties.Delegates
@@ -35,10 +36,10 @@ class Lesson5S2 : AppCompatActivity(), WeatherConnect.WeatherCallback {
             insets
         }
         initializeVariables()
-        latitude = intent.getDoubleExtra("LATITUDE", 0.0)
-        longitude = intent.getDoubleExtra("LONGITUDE", 0.0)
+        latitude = intent.getDoubleExtra(Constant.LATITUDE, 0.0)
+        longitude = intent.getDoubleExtra(Constant.LONGITUDE, 0.0)
         val url =
-            "https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${BuildConfig.WEATHER_API_KEY}"
+            "${Constant.WEATHER_API_END_POINT_MAIN}?lat=${latitude}&lon=${longitude}&appid=${BuildConfig.WEATHER_API_KEY}"
 
         WeatherConnect(this).execute(url)
     }
@@ -50,9 +51,9 @@ class Lesson5S2 : AppCompatActivity(), WeatherConnect.WeatherCallback {
     }
 
     override fun onWeatherError(errorMessage: String) {
-        Log.e("weather error:::::", "${errorMessage}")
+        Log.e("weather error:::::", errorMessage)
     }
-    fun initializeVariables(){
+    private fun initializeVariables(){
         cityName = findViewById(R.id.city)
         temperatureTxt = findViewById(R.id.temp)
         humidityTxt  = findViewById(R.id.humidity)
@@ -70,13 +71,13 @@ class Lesson5S2 : AppCompatActivity(), WeatherConnect.WeatherCallback {
 
         val iconCode = weatherData.weather[0].icon
 
-        val iconUrl = "https://openweathermap.org/img/wn/$iconCode.png"
+        val iconUrl = "${Constant.WEATHER_API_END_POINT}$iconCode.png"
 
         Glide.with(this)
             .load(iconUrl)
             .into(weatherImage)
 
-        weatherTxt.text = "${weatherData.weather[0].main}"
+        weatherTxt.text = weatherData.weather[0].main
     }
 
 

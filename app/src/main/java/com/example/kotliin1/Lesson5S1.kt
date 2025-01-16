@@ -16,6 +16,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.kotliin1.util.Constant
 import org.json.JSONArray
 
 class Lesson5S1 : AppCompatActivity() {
@@ -76,15 +77,15 @@ class Lesson5S1 : AppCompatActivity() {
 
     private fun navigateToLocationDetails(location: Location) {
         val intent = Intent(this, Lesson5S2::class.java).apply {
-            putExtra("LATITUDE", location.latitude)
-            putExtra("LONGITUDE", location.longitude)
+            putExtra(Constant.CAP_LATITUDE, location.latitude)
+            putExtra(Constant.CAP_LONGITUDE, location.longitude)
         }
         startActivity(intent)
     }
 
     private fun getBookMarksFromSharedPreferences(): List<Location> {
-        val sharedPreferences = getSharedPreferences("BookMarkData", MODE_PRIVATE)
-        val locationListString = sharedPreferences.getString("bookMarkList", "[]")
+        val sharedPreferences = getSharedPreferences(Constant.BOOK_MARK_PREF, MODE_PRIVATE)
+        val locationListString = sharedPreferences.getString(Constant.BOOK_MARK_LIST, "[]")
 
         val locationList = mutableListOf<Location>()
 
@@ -92,8 +93,8 @@ class Lesson5S1 : AppCompatActivity() {
             val jsonArray = JSONArray(locationListString)
             for (i in 0 until jsonArray.length()) {
                 val locationJson = jsonArray.getJSONObject(i)
-                val latitude = locationJson.getDouble("latitude")
-                val longitude = locationJson.getDouble("longitude")
+                val latitude = locationJson.getDouble(Constant.LATITUDE)
+                val longitude = locationJson.getDouble(Constant.LONGITUDE)
                 locationList.add(Location(latitude, longitude))
             }
         } catch (e: Exception) {
@@ -103,22 +104,22 @@ class Lesson5S1 : AppCompatActivity() {
     }
 
     private fun deleteLocation(location: Location) {
-        val sharedPreferences = getSharedPreferences("BookMarkData", MODE_PRIVATE)
+        val sharedPreferences = getSharedPreferences(Constant.BOOK_MARK_PREF, MODE_PRIVATE)
         val editor = sharedPreferences.edit()
-        val locationListString = sharedPreferences.getString("bookMarkList", "[]")
+        val locationListString = sharedPreferences.getString(Constant.BOOK_MARK_LIST, "[]")
         val jsonArray = JSONArray(locationListString)
 
         val updatedJsonArray = JSONArray()
 
         for (i in 0 until jsonArray.length()) {
             val locationJson = jsonArray.getJSONObject(i)
-            val latitude = locationJson.getDouble("latitude")
-            val longitude = locationJson.getDouble("longitude")
+            val latitude = locationJson.getDouble(Constant.LATITUDE)
+            val longitude = locationJson.getDouble(Constant.LONGITUDE)
             if (latitude != location.latitude || longitude != location.longitude) {
                 updatedJsonArray.put(locationJson)
             }
         }
-        editor.putString("bookMarkList", updatedJsonArray.toString())
+        editor.putString(Constant.BOOK_MARK_LIST, updatedJsonArray.toString())
         editor.apply()
         setupRecyclerView()
     }
@@ -129,7 +130,7 @@ class Lesson5S1 : AppCompatActivity() {
 
             val level = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1)
 
-            batteryPercent.text = "${level.toInt()} %"
+            "${level.toInt()} %".also { batteryPercent.text = it }
         }
     }
 

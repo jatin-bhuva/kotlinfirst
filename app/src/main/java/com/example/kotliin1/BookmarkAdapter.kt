@@ -27,8 +27,8 @@ class BookmarkAdapter(
 
     override fun onBindViewHolder(holder: LocationViewHolder, position: Int) {
         val location = locations[position]
-        holder.latitudeText.text = "Lat: ${location.latitude}"
-        holder.longitudeText.text = "Long: ${location.longitude}"
+        "Lat: ${location.latitude}".also { holder.latitudeText.text = it }
+        "Long: ${location.longitude}".also { holder.longitudeText.text = it }
 
         holder.deleteButton.setOnClickListener {
             onDeleteClick(location)
