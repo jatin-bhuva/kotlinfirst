@@ -75,4 +75,5 @@
     <string name="enter_contact">Contact number is required</string>
     <string name="invalid_contact">Invalid contact number</string>
     <string name="home">Home</string>
+    <string name="image_path">/storage/emulated/0/Download</string>
 </resources>

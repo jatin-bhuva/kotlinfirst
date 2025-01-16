@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import java.io.File
 
 class Lesson6S1 : AppCompatActivity() {
-    private var selectedFolder: String = "/storage/emulated/0/Download"
+    private lateinit  var selectedFolder: String
     private lateinit var imageListView: RecyclerView
     private lateinit var toolbar: androidx.appcompat.widget.Toolbar
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,6 +31,7 @@ class Lesson6S1 : AppCompatActivity() {
     }
 
     private fun initializeVariables() {
+        selectedFolder = getString(R.string.image_path)
         imageListView = findViewById(R.id.photo_list)
         toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
