@@ -1,21 +1,26 @@
 package com.example.kotliin1
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import java.io.File
 
-class Lesson6S1 : AppCompatActivity() {
+class Lesson6S1 : BaseActivity() {
     private lateinit  var selectedFolder: String
     private lateinit var imageListView: RecyclerView
     private lateinit var toolbar: androidx.appcompat.widget.Toolbar
+    private lateinit var folderTitle: TextView
+
+    private lateinit var sharedPreferences: SharedPreferences
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -31,17 +36,18 @@ class Lesson6S1 : AppCompatActivity() {
     }
 
     private fun initializeVariables() {
-        selectedFolder = getString(R.string.image_path)
         imageListView = findViewById(R.id.photo_list)
+        folderTitle = findViewById(R.id.materialTextView)
         toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
+        getAndSavePreferencesData()
     }
 
     private fun displayImages(folderPath: String) {
         val folder = File(folderPath)
         val imageFiles = folder.listFiles { file ->
-            file.extension in listOf("jpg", "png", "jpeg")
+            file.extension in listOf(Constants.JPG, Constants.PNG, Constants.JPEG)
         }?.toList() ?: emptyList()
         val adapter = ImageAdapter(imageFiles)
         imageListView.layoutManager = GridLayoutManager(this, 3)
@@ -60,10 +66,19 @@ class Lesson6S1 : AppCompatActivity() {
                 startActivity(intent)
                 true
             }
-
             else -> super.onOptionsItemSelected(item)
         }
     }
 
+    private fun getAndSavePreferencesData() {
+        sharedPreferences = getSharedPreferences(Constants.SETTING_PREFS_NAME, MODE_PRIVATE)
+        selectedFolder = sharedPreferences.getString(Constants.KEY_SELECTED_FOLDER_PATH, "") ?: ""
+        folderTitle.text = selectedFolder
+    }
 
+    override fun onResume() {
+        getAndSavePreferencesData()
+        displayImages(selectedFolder)
+        super.onResume()
+    }
 }

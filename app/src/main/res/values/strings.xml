@@ -76,4 +76,16 @@
     <string name="invalid_contact">Invalid contact number</string>
     <string name="home">Home</string>
     <string name="image_path">/storage/emulated/0/Download</string>
+    <string name="image_path1">/storage/emulated/0/Pictures</string>
+    <string name="settings">Settings</string>
+    <string name="image_folder">Image Folder</string>
+    <string name="choose_a_folder">Choose a folder</string>
+    <string name="status_bar_color">Status Bar color</string>
+    <string name="choose_a_color">Choose a Color</string>
+    <string name="action_bar_color">Action Bar color</string>
+    <string name="Blue">Blue</string>
+    <string name="Green">Green</string>
+    <string name="Red">Red</string>
+    <string name="White">White</string>
+
 </resources>

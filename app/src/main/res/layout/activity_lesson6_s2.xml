@@ -8,4 +8,124 @@
     android:layout_height="match_parent"
     tools:context=".Lesson6S2">
 
-  </androidx.constraintlayout.widget.ConstraintLayout>
+  <androidx.appcompat.widget.Toolbar
+      android:id="@+id/toolbar"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@android:color/white"
+      android:elevation="@dimen/dp4"
+      android:theme="@style/ToolbarTitleText"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:titleTextColor="@android:color/black">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/toolbar_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/settings"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/sp16" />
+  </androidx.appcompat.widget.Toolbar>
+
+  <com.google.android.material.textview.MaterialTextView
+      android:id="@+id/materialTextView3"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginHorizontal="@dimen/dp10"
+      android:layout_marginVertical="@dimen/dp10"
+      android:text="@string/image_folder"
+      android:textColor="@color/black"
+      android:textSize="@dimen/sp16"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+  <com.google.android.material.textfield.TextInputLayout
+      android:id="@+id/textInputLayout"
+      style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginHorizontal="@dimen/dp10"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/materialTextView3">
+
+    <AutoCompleteTextView
+        android:id="@+id/folder_autocomplete"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:inputType="none"
+        android:text="@string/choose_a_folder"
+        tools:ignore="LabelFor" />
+
+  </com.google.android.material.textfield.TextInputLayout>
+
+  <com.google.android.material.textview.MaterialTextView
+      android:id="@+id/status_bar_color_label"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginHorizontal="@dimen/dp10"
+      android:layout_marginVertical="@dimen/dp10"
+      android:text="@string/status_bar_color"
+      android:textColor="@color/black"
+      android:textSize="@dimen/sp16"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+
+  <com.google.android.material.textfield.TextInputLayout
+      android:id="@+id/textInputLayout2"
+      style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginHorizontal="@dimen/dp10"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/status_bar_color_label">
+
+    <AutoCompleteTextView
+        android:id="@+id/status_bar_color_auto_complete"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:inputType="none"
+        android:text="@string/choose_a_color"
+        tools:ignore="LabelFor" />
+  </com.google.android.material.textfield.TextInputLayout>
+
+  <com.google.android.material.textview.MaterialTextView
+      android:id="@+id/action_bar_color_label"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginHorizontal="@dimen/dp10"
+      android:layout_marginVertical="@dimen/dp10"
+      android:text="@string/action_bar_color"
+      android:textColor="@color/black"
+      android:textSize="@dimen/sp16"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
+
+  <com.google.android.material.textfield.TextInputLayout
+      style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginHorizontal="@dimen/dp10"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/action_bar_color_label">
+
+    <AutoCompleteTextView
+        android:id="@+id/action_bar_color_auto_complete"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:inputType="none"
+        android:text="@string/choose_a_color"
+        tools:ignore="LabelFor" />
+  </com.google.android.material.textfield.TextInputLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:titleTextColor="@android:color/black">
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/toolbar_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -28,11 +28,20 @@
             android:textSize="@dimen/sp16" />
     </androidx.appcompat.widget.Toolbar>
 
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/materialTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp10"
+        android:layout_marginVertical="@dimen/dp10"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/photo_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:id="@+id/photo_list"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/materialTextView" />
 </androidx.constraintlayout.widget.ConstraintLayout>
