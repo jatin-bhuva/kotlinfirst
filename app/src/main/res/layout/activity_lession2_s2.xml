@@ -7,13 +7,13 @@
     android:layout_height="match_parent"
     tools:context=".Lession2S2">
 
-    <TextView
-        android:id="@+id/activtyCycleLog"
-        android:layout_width="wrap_content"
+
+    <GridView
+        android:id="@+id/gridViewLog"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:numColumns="2"
+        app:layout_constraintBottom_toTopOf="@+id/share_button"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
@@ -23,6 +23,5 @@
         android:text="@string/share"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activtyCycleLog" />
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
