@@ -1,0 +1,82 @@
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dp8"
+    app:cardCornerRadius="@dimen/dp8"
+    app:cardElevation="@dimen/dp4">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        style="@style/AutoCompleteTextViewStyle"
+        android:padding="@dimen/dp10">
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btn_delete"
+            style="@style/IconEditDelete"
+            android:src="@drawable/baseline_delete_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btn_edit"
+            style="@style/IconEditDelete"
+            android:layout_marginTop="@dimen/dp10"
+            android:src="@drawable/edit_note"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_delete"
+            tools:src="@drawable/edit_note" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_name"
+            style="@style/CardTitleTxt"
+            android:text="@string/john_doe"
+            app:layout_constraintEnd_toStartOf="@+id/btn_delete"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_email"
+            style="@style/CardValueTxt"
+            android:text="@string/email_john_example_com"
+            app:layout_constraintEnd_toStartOf="@+id/btn_delete"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_name" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_phone"
+            style="@style/CardValueTxt"
+            android:text="@string/phone_1234567890"
+            app:layout_constraintEnd_toStartOf="@+id/btn_delete"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_email" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_department"
+            style="@style/CardValueTxt"
+            android:text="@string/department_computer_science"
+            app:layout_constraintEnd_toEndOf="@+id/tv_phone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_phone" />
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_gender"
+            style="@style/CardValueTxt"
+            android:text="@string/gender_male"
+            app:layout_constraintEnd_toEndOf="@+id/tv_department"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_department" />
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_interests"
+            style="@style/CardValueTxt"
+            android:text="@string/interests_sports_reading"
+            app:layout_constraintEnd_toEndOf="@+id/tv_gender"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_gender" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

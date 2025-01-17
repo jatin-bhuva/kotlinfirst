@@ -1,14 +1,74 @@
 <!-- res/values/styles.xml -->
 <resources>
-    <!-- Custom Toolbar Title Text Appearance -->
     <style name="ToolbarTitleText" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="android:textSize">18sp</item> <!-- Change font size -->
-        <item name="android:textColor">#000000</item>
+        <item name="android:textSize">@dimen/sp24</item>
+        <item name="android:textColor">@color/black</item>
         <item name="android:textStyle">bold</item>
-        <!-- Title color -->
     </style>
 
     <style name="Button.green" parent="ThemeOverlay.AppCompat">
-        <item name="colorAccent">#1dc249</item>
+        <item name="colorAccent">@color/custom</item>
+    </style>
+
+    <style name="TitleText" parent="RadioButtonStyle">
+        <item name="android:textSize">@dimen/sp24</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingBottom">@dimen/fab_margin</item>
+    </style>
+
+    <style name="LabelText" parent="RadioButtonStyle">
+        <item name="android:textSize">@dimen/fab_text</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginTop">@dimen/fab_margin</item>
+    </style>
+
+    <style name="TextInputLayoutStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/dp8</item>
+    </style>
+
+    <style name="AutoCompleteTextViewStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="ButtonStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/dp24</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="CheckBoxStyle" parent="RadioButtonStyle">
+        <item name="android:layout_marginTop">@dimen/dp8</item>
+    </style>
+
+    <style name="RadioButtonStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="MatchParent">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="WrapContent" parent="RadioButtonStyle"/>
+
+    <style name="IconEditDelete">
+        <item name="android:layout_width">@dimen/dp24</item>
+        <item name="android:layout_height">@dimen/dp24</item>
+    </style>
+
+    <style name="CardTitleTxt" parent="CardValueTxt">
+        <item name="android:textAppearance">?attr/textAppearanceBody1</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="CardValueTxt">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">?attr/textAppearanceBody2</item>
     </style>
 </resources>
