@@ -11,19 +11,21 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.kotliin1.db.AppDatabase
 import com.example.kotliin1.db.Student
+import com.example.kotliin1.db.StudentDao
 import com.example.kotliin1.db.StudentRepository
+import com.example.kotliin1.models.StudentViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.coroutines.launch
-
-
+import androidx.activity.viewModels
 class Lesson7S1 : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var fab: FloatingActionButton
     private lateinit var studentDao: StudentDao
     private lateinit var studentAdapter: StudentAdapter
     private lateinit var studentRepository: StudentRepository
-
+    private val studentViewModel: StudentViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -74,7 +76,7 @@ class Lesson7S1 : AppCompatActivity() {
     }
 
     private fun getStudentData(){
-        studentDao.getAllStudents().observe(this, Observer { students ->
+        studentViewModel.studentList.observe(this, Observer { students ->
             studentAdapter = StudentAdapter(students, ::onEditClicked, ::onDeleteClicked)
             recyclerView.adapter = studentAdapter
         })

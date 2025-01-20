@@ -16,14 +16,14 @@ class StudentAdapter(
     RecyclerView.Adapter<StudentAdapter.StudentViewHolder>() {
 
     class StudentViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val tvName: TextView = itemView.findViewById(R.id.tv_name)
-        val tvEmail: TextView = itemView.findViewById(R.id.tv_email)
-        val tvPhone: TextView = itemView.findViewById(R.id.tv_phone)
-        val tvDepartment: TextView = itemView.findViewById(R.id.tv_department)
-        val tvGender: TextView = itemView.findViewById(R.id.tv_gender)
-        val tvInterests: TextView = itemView.findViewById(R.id.tv_interests)
-        val btnEdit: ImageButton = itemView.findViewById(R.id.btn_edit)
-        val btnDelete: ImageButton = itemView.findViewById(R.id.btn_delete)
+        val tvName: TextView = itemView.findViewById(R.id.tvName)
+        val tvEmail: TextView = itemView.findViewById(R.id.tvEmail)
+        val tvPhone: TextView = itemView.findViewById(R.id.tvPhone)
+        val tvDepartment: TextView = itemView.findViewById(R.id.tvDepartment)
+        val tvGender: TextView = itemView.findViewById(R.id.tvGender)
+        val tvInterests: TextView = itemView.findViewById(R.id.tvInterests)
+        val btnEdit: ImageButton = itemView.findViewById(R.id.btnEdit)
+        val btnDelete: ImageButton = itemView.findViewById(R.id.btnDelete)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StudentViewHolder {

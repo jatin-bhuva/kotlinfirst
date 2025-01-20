@@ -12,70 +12,70 @@
         android:padding="@dimen/dp10">
 
         <androidx.appcompat.widget.AppCompatImageButton
-            android:id="@+id/btn_delete"
+            android:id="@+id/btnDelete"
             style="@style/IconEditDelete"
             android:src="@drawable/baseline_delete_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatImageButton
-            android:id="@+id/btn_edit"
+            android:id="@+id/btnEdit"
             style="@style/IconEditDelete"
             android:layout_marginTop="@dimen/dp10"
             android:src="@drawable/edit_note"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_delete"
+            app:layout_constraintTop_toBottomOf="@+id/btnDelete"
             tools:src="@drawable/edit_note" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tv_name"
+            android:id="@+id/tvName"
             style="@style/CardTitleTxt"
             android:text="@string/john_doe"
-            app:layout_constraintEnd_toStartOf="@+id/btn_delete"
+            app:layout_constraintEnd_toStartOf="@+id/btnDelete"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tv_email"
+            android:id="@+id/tvEmail"
             style="@style/CardValueTxt"
             android:text="@string/email_john_example_com"
-            app:layout_constraintEnd_toStartOf="@+id/btn_delete"
+            app:layout_constraintEnd_toStartOf="@+id/btnDelete"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_name" />
+            app:layout_constraintTop_toBottomOf="@id/tvName" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tv_phone"
+            android:id="@+id/tvPhone"
             style="@style/CardValueTxt"
             android:text="@string/phone_1234567890"
-            app:layout_constraintEnd_toStartOf="@+id/btn_delete"
+            app:layout_constraintEnd_toStartOf="@+id/btnDelete"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_email" />
+            app:layout_constraintTop_toBottomOf="@id/tvEmail" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tv_department"
+            android:id="@+id/tvDepartment"
             style="@style/CardValueTxt"
             android:text="@string/department_computer_science"
-            app:layout_constraintEnd_toEndOf="@+id/tv_phone"
+            app:layout_constraintEnd_toEndOf="@+id/tvPhone"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_phone" />
+            app:layout_constraintTop_toBottomOf="@id/tvPhone" />
 
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tv_gender"
+            android:id="@+id/tvGender"
             style="@style/CardValueTxt"
             android:text="@string/gender_male"
-            app:layout_constraintEnd_toEndOf="@+id/tv_department"
+            app:layout_constraintEnd_toEndOf="@+id/tvDepartment"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_department" />
+            app:layout_constraintTop_toBottomOf="@id/tvDepartment" />
 
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tv_interests"
+            android:id="@+id/tvInterests"
             style="@style/CardValueTxt"
             android:text="@string/interests_sports_reading"
-            app:layout_constraintEnd_toEndOf="@+id/tv_gender"
+            app:layout_constraintEnd_toEndOf="@+id/tvGender"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_gender" />
+            app:layout_constraintTop_toBottomOf="@id/tvGender" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

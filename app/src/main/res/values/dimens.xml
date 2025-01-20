@@ -7,5 +7,6 @@
     <dimen name="fab_text">16sp</dimen>
     <dimen name="sp24">24sp</dimen>
     <dimen name="dp10">10dp</dimen>
+    <dimen name="dp0">0dp</dimen>
 
 </resources>

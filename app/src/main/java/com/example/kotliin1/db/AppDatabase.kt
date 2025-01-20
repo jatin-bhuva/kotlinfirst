@@ -1,10 +1,10 @@
-package com.example.kotliin1
+package com.example.kotliin1.db
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.kotliin1.db.Student
+import com.example.kotliin1.Constants
 
 @Database(entities = [Student::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {

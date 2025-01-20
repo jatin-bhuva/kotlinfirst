@@ -1,4 +1,4 @@
-package com.example.kotliin1
+package com.example.kotliin1.db
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
@@ -7,7 +7,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
-import com.example.kotliin1.db.Student
+import com.example.kotliin1.Constants
 
 @Dao
 interface StudentDao {

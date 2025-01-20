@@ -1,6 +1,7 @@
 package com.example.kotliin1
 
 import android.os.Bundle
+import android.text.Editable
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.RadioGroup
@@ -10,7 +11,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
+import com.example.kotliin1.db.AppDatabase
 import com.example.kotliin1.db.Student
+import com.example.kotliin1.db.StudentDao
 import com.example.kotliin1.db.StudentRepository
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.checkbox.MaterialCheckBox
@@ -64,25 +67,25 @@ class Lesson7S2 : AppCompatActivity() {
     }
 
     private fun initializeVariables() {
-        tilFullName = findViewById(R.id.til_full_name)
-        etFullName = findViewById(R.id.et_full_name)
-        tilEmail = findViewById(R.id.til_email)
-        etEmail = findViewById(R.id.et_email)
-        tilPhone = findViewById(R.id.til_phone)
-        etPhone = findViewById(R.id.et_phone)
-        tvGender = findViewById(R.id.tv_gender)
-        rgGender = findViewById(R.id.rg_gender)
-        rbMale = findViewById(R.id.rb_male)
-        rbFemale = findViewById(R.id.rb_female)
-        tilDob = findViewById(R.id.til_dob)
-        etDob = findViewById(R.id.et_dob)
-        tilDepartment = findViewById(R.id.til_department)
-        actvDepartment = findViewById(R.id.actv_department)
-        tvInterests = findViewById(R.id.tv_interests)
-        cbSports = findViewById(R.id.cb_sports)
-        cbReading = findViewById(R.id.cb_reading)
-        cbTraveling = findViewById(R.id.cb_traveling)
-        btnSubmit = findViewById(R.id.btn_submit)
+        tilFullName = findViewById(R.id.tilFullName)
+        etFullName = findViewById(R.id.etFullName)
+        tilEmail = findViewById(R.id.tilEmail)
+        etEmail = findViewById(R.id.etEmail)
+        tilPhone = findViewById(R.id.tilPhone)
+        etPhone = findViewById(R.id.etPhone)
+        tvGender = findViewById(R.id.tvGender)
+        rgGender = findViewById(R.id.rgGender)
+        rbMale = findViewById(R.id.rbMale)
+        rbFemale = findViewById(R.id.rbFemale)
+        tilDob = findViewById(R.id.tilDob)
+        etDob = findViewById(R.id.etDob)
+        tilDepartment = findViewById(R.id.tilDepartment)
+        actvDepartment = findViewById(R.id.actvDepartment)
+        tvInterests = findViewById(R.id.tvInterests)
+        cbSports = findViewById(R.id.cbSport)
+        cbReading = findViewById(R.id.cbReading)
+        cbTraveling = findViewById(R.id.cbTraveling)
+        btnSubmit = findViewById(R.id.btnSubmit)
         db = AppDatabase.getDatabase(this)
         studentDao = db.studentDao()
         studentRepository = StudentRepository(studentDao)
@@ -93,6 +96,9 @@ class Lesson7S2 : AppCompatActivity() {
                 android.R.layout.simple_dropdown_item_1line,
                 Constants.DEPARTMENT_LIST
             )
+        actvDepartment.run {
+            isSaveEnabled = false
+        }
         actvDepartment.setAdapter(departmentAdapter)
 
         btnSubmit.setOnClickListener {
@@ -108,8 +114,8 @@ class Lesson7S2 : AppCompatActivity() {
         val dob = etDob.text.toString().trim()
         val department = actvDepartment.text.toString().trim()
         val gender = when (rgGender.checkedRadioButtonId) {
-            R.id.rb_male -> getString(R.string.male)
-            R.id.rb_female -> getString(R.string.female)
+            R.id.rbMale -> getString(R.string.male)
+            R.id.rbFemale -> getString(R.string.female)
             else -> null
         }
         val interests = mutableListOf<String>().apply {
@@ -214,7 +220,6 @@ class Lesson7S2 : AppCompatActivity() {
 
     private fun addUpdateStudentData(student: Student) {
         lifecycleScope.launch {
-            studentRepository.insertStudent(student)
             when {
                 student.id == 0 -> {
                     studentRepository.insertStudent(student)
@@ -236,7 +241,7 @@ class Lesson7S2 : AppCompatActivity() {
         lifecycleScope.launch {
             val student = studentRepository.getStudentById(studentId)
             student?.let {
-                etFullName.setText(it.fullName)
+                etFullName.text = Editable.Factory.getInstance().newEditable(it.fullName);
                 etEmail.setText(it.email)
                 etPhone.setText(it.phone)
                 etDob.setText(it.dob)

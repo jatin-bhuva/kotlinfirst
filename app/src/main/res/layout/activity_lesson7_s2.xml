@@ -13,12 +13,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        <androidx.constraintlayout.widget.ConstraintLayout style="@style/AutoCompleteTextViewStyle">
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/tv_title"
+                android:id="@+id/tvTitle"
                 style="@style/TitleText"
                 android:text="@string/student_registration_form"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -26,102 +24,102 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_full_name"
+                android:id="@+id/tilFullName"
                 style="@style/TextInputLayoutStyle"
                 android:hint="@string/full_name"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_title">
+                app:layout_constraintTop_toBottomOf="@id/tvTitle">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_full_name"
+                    android:id="@+id/etFullName"
                     style="@style/AutoCompleteTextViewStyle"
                     android:inputType="textPersonName" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_email"
+                android:id="@+id/tilEmail"
                 style="@style/TextInputLayoutStyle"
                 android:hint="@string/email_address"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/til_full_name">
+                app:layout_constraintTop_toBottomOf="@id/tilFullName">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_email"
+                    android:id="@+id/etEmail"
                     style="@style/AutoCompleteTextViewStyle"
                     android:inputType="textEmailAddress" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_phone"
+                android:id="@+id/tilPhone"
                 style="@style/TextInputLayoutStyle"
                 android:hint="@string/phone_number"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/til_email">
+                app:layout_constraintTop_toBottomOf="@id/tilEmail">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_phone"
+                    android:id="@+id/etPhone"
                     style="@style/AutoCompleteTextViewStyle"
                     android:inputType="phone" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/tv_gender"
+                android:id="@+id/tvGender"
                 style="@style/LabelText"
                 android:layout_marginTop="@dimen/fab_margin"
                 android:text="@string/gender"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/til_phone" />
+                app:layout_constraintTop_toBottomOf="@id/tilPhone" />
 
             <RadioGroup
-                android:id="@+id/rg_gender"
-                android:layout_width="0dp"
+                android:id="@+id/rgGender"
+                android:layout_width="@dimen/dp0"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp8"
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_gender">
+                app:layout_constraintTop_toBottomOf="@id/tvGender">
 
                 <com.google.android.material.radiobutton.MaterialRadioButton
-                    android:id="@+id/rb_male"
+                    android:id="@+id/rbMale"
                     style="@style/RadioButtonStyle"
                     android:text="@string/male" />
 
                 <com.google.android.material.radiobutton.MaterialRadioButton
-                    android:id="@+id/rb_female"
+                    android:id="@+id/rbFemale"
                     style="@style/RadioButtonStyle"
                     android:text="@string/female" />
             </RadioGroup>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_dob"
+                android:id="@+id/tilDob"
                 style="@style/TextInputLayoutStyle"
                 android:hint="@string/date_of_birth"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/rg_gender">
+                app:layout_constraintTop_toBottomOf="@id/rgGender">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_dob"
+                    android:id="@+id/etDob"
                     style="@style/AutoCompleteTextViewStyle"
                     android:inputType="date" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_department"
+                android:id="@+id/tilDepartment"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp10"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/til_dob">
+                app:layout_constraintTop_toBottomOf="@+id/tilDob">
 
                 <AutoCompleteTextView
-                    android:id="@+id/actv_department"
+                    android:id="@+id/actvDepartment"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -132,42 +130,41 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/tv_interests"
+                android:id="@+id/tvInterests"
                 style="@style/LabelText"
                 android:text="@string/interests"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/til_department" />
+                app:layout_constraintTop_toBottomOf="@id/tilDepartment" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
-                android:id="@+id/cb_sports"
+                android:id="@+id/cbSport"
                 style="@style/CheckBoxStyle"
                 android:layout_marginTop="@dimen/dp8"
                 android:text="@string/sports"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_interests" />
+                app:layout_constraintTop_toBottomOf="@id/tvInterests" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
-                android:id="@+id/cb_reading"
+                android:id="@+id/cbReading"
                 style="@style/CheckBoxStyle"
                 android:text="@string/reading"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cb_sports" />
+                app:layout_constraintTop_toBottomOf="@id/cbSport" />
 
             <com.google.android.material.checkbox.MaterialCheckBox
-                android:id="@+id/cb_traveling"
+                android:id="@+id/cbTraveling"
                 style="@style/CheckBoxStyle"
                 android:text="@string/traveling"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cb_reading" />
+                app:layout_constraintTop_toBottomOf="@id/cbReading" />
 
-            <!-- Submit Button -->
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_submit"
+                android:id="@+id/btnSubmit"
                 style="@style/ButtonStyle"
                 android:text="@string/submit"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cb_traveling" />
+                app:layout_constraintTop_toBottomOf="@id/cbTraveling" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
