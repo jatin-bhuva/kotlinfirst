@@ -7,4 +7,7 @@ object Constants {
     const val DATE_FORMAT = "dd/MM/yyyy"
     const val STUDENT_ID_KEY = "STUDENT_ID"
     const val STUDENT_DB_NAME = "student_database"
+    const val PAGE_1 = "Page 1"
+    const val PAGE_2 = "Page 2"
+    const val PAGE_3 = "Page 3"
 }

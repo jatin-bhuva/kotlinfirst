@@ -115,5 +115,7 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="update">Update</string>
+    <string name="todo">TODO</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

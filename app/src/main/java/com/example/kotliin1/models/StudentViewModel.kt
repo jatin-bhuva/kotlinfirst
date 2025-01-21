@@ -9,11 +9,16 @@ import com.example.kotliin1.db.StudentRepository
 
 class StudentViewModel(application: Application) : AndroidViewModel(application) {
     private val repository: StudentRepository;
-    public var studentList: LiveData<List<Student>>
+    var studentList: LiveData<List<Student>>
 
     init {
         val appDB = AppDatabase.getDatabase(application).studentDao()
         repository = StudentRepository(appDB)
         studentList = repository.getAllStudents()
     }
+
+    suspend fun deleteStudent(student: Student) {
+        repository.deleteStudent(student)
+    }
+
 }

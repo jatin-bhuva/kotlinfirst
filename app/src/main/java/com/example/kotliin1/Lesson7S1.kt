@@ -3,11 +3,11 @@ package com.example.kotliin1
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -18,7 +18,7 @@ import com.example.kotliin1.db.StudentRepository
 import com.example.kotliin1.models.StudentViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.coroutines.launch
-import androidx.activity.viewModels
+
 class Lesson7S1 : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var fab: FloatingActionButton
@@ -76,10 +76,10 @@ class Lesson7S1 : AppCompatActivity() {
     }
 
     private fun getStudentData(){
-        studentViewModel.studentList.observe(this, Observer { students ->
+        studentViewModel.studentList.observe(this) { students ->
             studentAdapter = StudentAdapter(students, ::onEditClicked, ::onDeleteClicked)
             recyclerView.adapter = studentAdapter
-        })
+        }
     }
 
 }
