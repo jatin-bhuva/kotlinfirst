@@ -74,4 +74,7 @@
     <string name="pass_length">Minimum length is 8</string>
     <string name="enter_contact">Contact number is required</string>
     <string name="invalid_contact">Invalid contact number</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="no_breeds_found">No breeds found</string>
 </resources>
