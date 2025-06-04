@@ -11,16 +11,13 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 
-import com.example.kotliin1.R
 import com.example.kotliin1.data.api.DogApiService
 import com.example.kotliin1.data.api.RetrofitHelper
 import com.example.kotliin1.data.repository.DogRepository
 import com.example.kotliin1.databinding.FragmentBreedListBinding
 import com.example.kotliin1.viewModel.BreedListAdapter
 import com.example.kotliin1.viewModel.ViewModelFactory
-import okhttp3.OkHttpClient
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+
 
 class BreedListFragment : Fragment() {
 
@@ -47,9 +44,9 @@ class BreedListFragment : Fragment() {
 
         val adapter = BreedListAdapter(emptyList()) { breed ->
 
-            val action = BreedListFragmentDirections
-                .actionFragmentTaskListToFragmentBreedDetail(breed)
-            findNavController().navigate(action)
+//            val action = BreedListFragmentDirections
+//                .actionFragmentTaskListToFragmentBreedDetail(breed)
+//            findNavController().navigate(action)
         }
 
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
@@ -58,7 +55,6 @@ class BreedListFragment : Fragment() {
         viewModel.breeds.observe(viewLifecycleOwner, Observer {
            adapter.updateList(it)
         })
-
         viewModel.breedsLoading.observe(viewLifecycleOwner) { isLoading ->
             binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
         }

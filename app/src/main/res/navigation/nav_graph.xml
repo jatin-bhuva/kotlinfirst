@@ -2,7 +2,29 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/fragment_task_list">
+    app:startDestination="@id/fragment_movie_list">
+
+
+
+    <fragment
+        android:id="@+id/fragment_movie_list"
+        android:name="com.example.kotliin1.ui.movielist.MovieListFragment"
+        android:label="Task List">
+        <action
+            android:id="@+id/action_fragment_task_list_to_fragment_movie_detail"
+            app:destination="@id/fragment_movie_detail"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_movie_detail"
+        android:name="com.example.kotliin1.ui.moviedetail.MovieDetailFragment"
+        android:label="Movie Detail">
+        <argument
+            android:name="movie"
+            app:argType="com.example.kotliin1.domain.model.Movie" />
+    </fragment>
+
 
     <fragment
         android:id="@+id/fragment_task_list"
