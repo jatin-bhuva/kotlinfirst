@@ -11,4 +11,123 @@
     <style name="Button.green" parent="ThemeOverlay.AppCompat">
         <item name="colorAccent">#1dc249</item>
     </style>
+
+    <style name="MovieCardStyle">
+        <item name="cardCornerRadius">@dimen/card_corner_radius</item>
+        <item name="cardElevation">@dimen/card_elevation</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_margin">@dimen/card_margin</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="MovieImageStyle">
+        <item name="android:layout_width">@dimen/image_size</item>
+        <item name="android:layout_height">@dimen/image_size</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+    <style name="MovieTitleStyle">
+        <item name="android:layout_width">@dimen/zero_dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/title_margin_start</item>
+        <item name="android:textSize">@dimen/title_text_size</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="MovieDescriptionStyle">
+        <item name="android:layout_width">@dimen/zero_dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/description_text_size</item>
+    </style>
+
+    <style name="CastCard">
+        <item name="android:layout_width">@dimen/cast_card_width</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/description_text_size</item>
+        <item name="android:elevation">@dimen/card_elevation</item>
+        <item name="android:layout_margin">@dimen/card_margin</item>
+    </style>
+
+    <style name="CastImage">
+        <item name="android:layout_width">@dimen/cast_card_width</item>
+        <item name="android:layout_height">@dimen/cast_card_width</item>
+    </style>
+
+    <style name="CastName">
+        <item name="android:textSize">@dimen/title_text_size</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="CastConstraint">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="MovieListLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginTop">@dimen/title_margin_start</item>
+    </style>
+
+    <style name="MovieListView">
+        <item name="android:layout_width">@dimen/zero_dp</item>
+        <item name="android:layout_height">@dimen/zero_dp</item>
+        <item name="android:padding">@dimen/card_padding</item>
+        <item name="android:clipToPadding">false</item>
+        <item name="android:scrollbars">vertical</item>
+    </style>
+
+    <style name="ProgressBar">
+        <item name="android:layout_width">@dimen/progress_size</item>
+        <item name="android:layout_height">@dimen/progress_size</item>
+    </style>
+
+    <style name="NestedScroll">
+
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">@dimen/description_text_size</item>
+
+    </style>
+
+    <style name="MovieDetailConstraint">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">@dimen/card_margin</item>
+    </style>
+
+    <style name="MoviePoster">
+        <item name="android:layout_width">@dimen/poster_size</item>
+        <item name="android:layout_height">@dimen/poster_size</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+    <style name="MovieName">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/movie_name</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="WrapView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="ReleaseDate" parent="WrapView">
+        <item name="android:layout_marginBottom">@dimen/card_margin</item>
+    </style>
+
+    <style name="MovieList">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/card_margin</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:paddingStart">@dimen/card_margin</item>
+        <item name="android:paddingEnd">@dimen/card_margin</item>
+        <item name="android:clipToPadding">false</item>
+    </style>
 </resources>

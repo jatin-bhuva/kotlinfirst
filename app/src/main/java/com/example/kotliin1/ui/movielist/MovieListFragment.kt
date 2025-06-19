@@ -25,15 +25,15 @@ import com.example.kotliin1.ui.factory.MovieListViewModelFactory
 
 class MovieListFragment : Fragment() {
 
-    private var _binding: FragmentMovieListBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentMovieListBinding
+
     private lateinit var viewModel: MovieListViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
-        _binding = FragmentMovieListBinding.inflate(inflater, container, false)
+        binding = FragmentMovieListBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -71,7 +71,7 @@ class MovieListFragment : Fragment() {
             override fun onQueryTextSubmit(query: String?): Boolean = false
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                adapter.filter(newText ?: "")
+                adapter.filter(newText. orEmpty())
                 return true
             }
         })
@@ -87,12 +87,5 @@ class MovieListFragment : Fragment() {
                 }
             }
         })
-
-
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }

@@ -14,7 +14,7 @@ class MovieDetailViewModel(private val getCast: GetMovieCastUseCase) : ViewModel
 
     fun fetchCast(movieId: Int) {
         viewModelScope.launch {
-            _cast.value = getCast(movieId)!!
+            _cast.value = getCast(movieId).toList()
         }
     }
 }

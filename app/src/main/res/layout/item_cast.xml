@@ -1,45 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <data />
+    <com.google.android.material.card.MaterialCardView
+    style="@style/CastCard">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="180dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:elevation="4dp">
+      <androidx.constraintlayout.widget.ConstraintLayout
+          style="@style/CastConstraint">
+          <com.google.android.material.imageview.ShapeableImageView
+              android:id="@+id/ivPosterImage"
+              style="@style/CastImage"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toTopOf="parent" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="8dp">
+          <com.google.android.material.textview.MaterialTextView
+              android:id="@+id/name"
+              style="@style/CastName"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintBottom_toBottomOf="@id/character"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toBottomOf="@+id/ivPosterImage" />
 
-            <ImageView
-                android:id="@+id/ivPosterImage"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:scaleType="centerCrop" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="8dp">
-                <TextView
-                    android:id="@+id/name"
-                    android:layout_height="wrap_content"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:gravity="center_vertical"  android:layout_width="match_parent"/>
-
-                <TextView
-                    android:id="@+id/character"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:gravity="center_vertical" />
-            </LinearLayout>
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+          <com.google.android.material.textview.MaterialTextView
+              android:id="@+id/character"
+              style="@style/CastName"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintBottom_toBottomOf="parent"
+              app:layout_constraintTop_toBottomOf="@+id/name" />
+      </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
 </layout>

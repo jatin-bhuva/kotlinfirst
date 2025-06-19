@@ -1,50 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.google.android.material.card.MaterialCardView
+        style="@style/MovieCardStyle">
 
-    <data />
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:elevation="4dp">
-
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:padding="8dp">
 
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/ivPosterImage"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:scaleType="centerCrop" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="8dp">
-                <TextView
-                    android:id="@+id/tvZMovieName"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginStart="16dp"
-                    android:text="@string/movie_name"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:gravity="center_vertical"  android:layout_width="match_parent"/>
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:contentDescription="@string/movie_image"
+                style="@style/MovieImageStyle"/>
 
-                <TextView
-                    android:id="@+id/tvZDescription"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginStart="16dp"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:gravity="center_vertical" />
-            </LinearLayout>
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvZMovieName"
+                style="@style/MovieTitleStyle"
+                android:text="@string/movie_name"
+                app:layout_constraintStart_toEndOf="@id/ivPosterImage"
+                app:layout_constraintTop_toTopOf="@id/ivPosterImage"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/MovieDescriptionStyle"
+                android:id="@+id/tvZDescription"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tvZMovieName"
+                app:layout_constraintTop_toBottomOf="@+id/tvZMovieName" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
 </layout>

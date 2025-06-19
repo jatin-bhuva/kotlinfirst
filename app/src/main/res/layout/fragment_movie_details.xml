@@ -1,62 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.core.widget.NestedScrollView
+       style="@style/NestedScroll">
+        <androidx.constraintlayout.widget.ConstraintLayout
+           style="@style/MovieDetailConstraint">
 
-    <data />
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="16dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center_horizontal">
-
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/ivBreedImage"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:scaleType="centerCrop"
-                android:layout_marginBottom="16dp" />
+                style="@style/MoviePoster"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="8dp" />
-            <TextView
+                style="@style/MovieName"
+                app:layout_constraintEnd_toEndOf="@+id/ivBreedImage"
+                app:layout_constraintStart_toStartOf="@+id/ivBreedImage"
+                app:layout_constraintTop_toBottomOf="@+id/ivBreedImage" />
+
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvZDescription"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp" />
+                style="@style/WrapView"
+                app:layout_constraintEnd_toEndOf="@+id/tvName"
+                app:layout_constraintStart_toStartOf="@+id/tvName"
+                app:layout_constraintTop_toBottomOf="@+id/tvName" />
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/releaseDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/ReleaseDate"
                 android:text="@string/release_date"
-                android:layout_marginBottom="8dp" />
+                app:layout_constraintEnd_toEndOf="@+id/tvZDescription"
+                app:layout_constraintStart_toStartOf="@+id/tvZDescription"
+                app:layout_constraintTop_toBottomOf="@+id/tvZDescription"
+                />
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/casts"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/ReleaseDate"
                 android:text="@string/cast"
-                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="@+id/releaseDate"
+                app:layout_constraintStart_toStartOf="@+id/releaseDate"
+                app:layout_constraintTop_toBottomOf="@+id/releaseDate"
                  />
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/castRecyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:orientation="horizontal"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp"
-                android:clipToPadding="false" />
-        </LinearLayout>
-    </ScrollView>
+                style="@style/MovieList"
+                app:layout_constraintEnd_toEndOf="@+id/casts"
+                app:layout_constraintStart_toStartOf="@+id/casts"
+                app:layout_constraintTop_toBottomOf="@+id/casts"
+                android:visibility="gone"
+               />
+
+
+<!--            <ListView-->
+<!--                android:id="@+id/castListView"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:divider="@null"-->
+<!--                app:layout_constraintEnd_toEndOf="@+id/casts"-->
+<!--                app:layout_constraintStart_toStartOf="@+id/casts"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/casts"-->
+<!--                android:dividerHeight="0dp"-->
+<!--                android:layout_marginTop="8dp"/>-->
+        </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.core.widget.NestedScrollView>
 </layout>
