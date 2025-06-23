@@ -81,4 +81,18 @@
     <string name="release_date">Release Date</string>
     <string name="cast">Cast:</string>
     <string name="movie_image">Movie Image</string>
+    <string name="allow_camera_permission">Allow Camera Permission</string>
+    <string name="granted_permissions_will_appear_here">Granted permissions will appear here</string>
+    <string name="permission_required">Permission Required</string>
+    <string name="permission_was_denied_permanently_please_enable_it_in_app_settings">Permission %1$s was denied permanently. Please enable it in app settings.</string>
+    <string name="cancel">Cancel</string>
+    <string name="go_to_settings">Go to Settings</string>
+    <string name="deny">Deny</string>
+    <string name="permission_needed">Permission Needed</string>
+    <string name="allow">Allow</string>
+    <string name="this_permission_is_required">This permission is required: %1$s</string>
+    <string name="requesting_access_coarse_location">Requesting ACCESS_COARSE_LOCATION</string>
+    <string name="permissions_request">PERMISSIONS_REQUEST</string>
+    <string name="no_permissions_granted_yet">No permissions granted yet.</string>
+    <string name="granted_permissions">Granted Permissions:\n%1$s</string>
 </resources>

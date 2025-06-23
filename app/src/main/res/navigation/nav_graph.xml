@@ -2,9 +2,15 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/fragment_movie_list">
+    app:startDestination="@+id/fragment_permission">
 
 
+    <fragment
+        android:id="@+id/fragment_permission"
+        android:name="com.example.kotliin1.other.Permission"
+        android:label="Permission">
+
+    </fragment>
 
     <fragment
         android:id="@+id/fragment_movie_list"
