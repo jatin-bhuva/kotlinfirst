@@ -2,6 +2,7 @@ package com.example.kotliin1
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +10,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.lifecycleScope
+import androidx.paging.LoadState
 import androidx.paging.LoadStateAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kotliin1.databinding.ActivityDependenctInjectionBinding
@@ -38,9 +40,22 @@ class DependencyInjection : AppCompatActivity() {
 
 
         lifecycleScope.launch {
-            Log.d("Test pagedUsers.....","./")
+            Log.d("Test pagedUsers.....", "./")
             viewModel.pagedUsers.collectLatest { pagingData ->
                 adapter.submitData(pagingData)
+            }
+        }
+        lifecycleScope.launch {
+            adapter.loadStateFlow.collectLatest { loadStates ->
+                val isRefreshing = loadStates.refresh is LoadState.Loading
+                val isAppending = loadStates.append is LoadState.Loading
+              if (isRefreshing||isAppending){
+                  binding.progressCircular.visibility = View.VISIBLE
+              }
+                else{
+                    binding.progressCircular.visibility = View.GONE
+              }
+                Log.d("TESTL LOSNINGG LOSFING",  isRefreshing.toString()+">......"+isAppending)
             }
         }
     }
