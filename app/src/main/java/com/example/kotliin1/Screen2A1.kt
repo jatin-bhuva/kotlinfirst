@@ -18,8 +18,6 @@ class Screen2A1 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
-        window.statusBarColor = resources.getColor(android.R.color.white, theme)
-        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
 
         setContentView(R.layout.activity_screen2_a2)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -28,7 +26,7 @@ class Screen2A1 : AppCompatActivity() {
             insets
         }
 
-        val btn = findViewById<Button>(R.id.btnAuth)
+
         val input1 = findViewById<EditText>(R.id.editText1)
         val option1 = findViewById<TextView>(R.id.otp1)
         val option2 = findViewById<TextView>(R.id.otp2)
