@@ -1,6 +1,7 @@
 package com.example.kotliin1
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.LinearLayout
@@ -9,6 +10,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
+import androidx.work.Constraints
+import androidx.work.NetworkType
+import androidx.work.OneTimeWorkRequest
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkManager
+import com.example.kotliin1.worker.DemoWorker
 
 class Lession1_S3 : AppCompatActivity() {
 
@@ -19,6 +26,8 @@ class Lession1_S3 : AppCompatActivity() {
     private lateinit var L2 :LinearLayout
     private lateinit var R1 :LinearLayout
     private lateinit var R2 :LinearLayout
+
+    private val workManager = WorkManager.getInstance(this)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -29,6 +38,7 @@ class Lession1_S3 : AppCompatActivity() {
             insets
         }
         initializeVariables()
+        doWork()
 
         btnTop.setOnClickListener {
             L2.visibility = if (L2.visibility == View.VISIBLE) View.GONE else View.VISIBLE
@@ -55,5 +65,21 @@ class Lession1_S3 : AppCompatActivity() {
          L2 = findViewById(R.id.linearLayout3);
          R1 = findViewById(R.id.linearLayout2);
          R2 = findViewById(R.id.linearLayout4);
+    }
+   private fun doWork(){
+        val request = OneTimeWorkRequest.Builder(DemoWorker::class.java)
+            .setConstraints(Constraints.Builder().setRequiredNetworkType(NetworkType.CONNECTED).build())
+                .build()
+        workManager.enqueue(request)
+
+       workManager.getWorkInfoByIdLiveData(request.id).observe(this){
+           if(it!=null){
+               printStatus(it.state.name)
+           }
+       }
+    }
+
+    private fun printStatus(name: String) {
+    Log.d("FILE",name)
     }
 }

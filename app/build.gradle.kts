@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.example.kotliin1"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.kotliin1"
@@ -36,7 +36,7 @@ android {
 }
 
 dependencies {
-
+    implementation(libs.androidx.work.runtime)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
