@@ -30,30 +30,9 @@ class Lession1_S3 : AppCompatActivity() {
         }
         initializeVariables()
 
-        btnTop.setOnClickListener {
-            L2.visibility = if (L2.visibility == View.VISIBLE) View.GONE else View.VISIBLE
-            R2.visibility =  if (R2.visibility == View.VISIBLE) View.GONE else View.VISIBLE
-        }
-
-        btnCenter.setOnClickListener{
-            L1.visibility = View.VISIBLE;
-            L2.visibility = View.VISIBLE;
-            R1.visibility = View.VISIBLE;
-            R2.visibility = View.VISIBLE
-        }
-        btnBottom.setOnClickListener{
-            L1.visibility = if(L1.visibility == View.VISIBLE) View.GONE else View.VISIBLE;
-            R1.visibility = if(R1.visibility == View.VISIBLE) View.GONE else View.VISIBLE
-        }
     }
+private fun initializeVariables(){
 
-    private fun initializeVariables(){
-         btnTop = findViewById(R.id.btnTop);
-         btnCenter = findViewById(R.id.view);
-         btnBottom = findViewById(R.id.btnBottom);
-         L1 = findViewById(R.id.linearLayout);
-         L2 = findViewById(R.id.linearLayout3);
-         R1 = findViewById(R.id.linearLayout2);
-         R2 = findViewById(R.id.linearLayout4);
-    }
+}
+
 }

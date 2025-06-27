@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View" />
+        <import type="com.example.kotliin1.ui.MainViewModel" />
+        <variable
+            name="viewModel"
+            type="MainViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        style="@style/ConstraintLayout">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="@style/WrapContent"
+            android:visibility="@{viewModel.uiState instanceof com.example.kotliin1.ui.RecipeUiState.Loading ? View.VISIBLE : View.GONE}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/search_input"
+            style="@style/InputLayout"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:hintEnabled="true"
+            app:placeholderText="@string/enter_recipe_number">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_search"
+                style="@style/EditText"
+                android:hint="@string/enter_recipe_number"
+                 />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ScrollView
+            android:id="@+id/scrollContent"
+            style="@style/ScrollView"
+            app:layout_constraintTop_toBottomOf="@id/search_input"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                style="@style/LinearLayout"
+                android:visibility="@{viewModel.recipe != null ? View.VISIBLE : View.GONE}">
+
+                <ImageView
+                    android:id="@+id/recipeImage"
+                    style="@style/RecipeImage"
+                    app:imageUrl="@{viewModel.recipe.image}"
+                    android:contentDescription="@string/todo" />
+
+                <TextView
+                    style="@style/RecipeTitleText"
+                    android:text="@{viewModel.recipe.name}" />
+
+                <TextView
+                    style="@style/ContentText"
+                    android:text='@{"Cuisine: " + viewModel.recipe.cuisine + " | Difficulty: " + viewModel.recipe.difficulty}' />
+
+                <TextView
+                    style="@style/ContentText"
+                    android:text='@{"Prep: " + viewModel.recipe.prepTimeMinutes + " mins, Cook: " + viewModel.recipe.cookTimeMinutes + " mins"}' />
+
+                <TextView
+                    style="@style/ContentText"
+                    android:text='@{"Servings: " + viewModel.recipe.servings}' />
+
+                <TextView
+                    style="@style/ContentText"
+                    android:text='@{"Rating: " + viewModel.recipe.rating + " ⭐ (" + viewModel.recipe.reviewCount + " reviews)"}' />
+
+                <TextView
+                    style="@style/ContentText"
+                    android:text='@{"Calories per serving: " + viewModel.recipe.caloriesPerServing}' />
+
+                <TextView
+                    style="@style/SectionHeaderText"
+                    android:text="@string/ingredients" />
+
+                <TextView
+                    style="@style/ContentText"
+                    app:joinedText="@{viewModel.recipe.ingredients}" />
+
+                <TextView
+                    style="@style/SectionHeaderText"
+                    android:text="@string/instructions" />
+
+                <TextView
+                    style="@style/ContentText"
+                    app:joinedText="@{viewModel.recipe.instructions}" />
+
+                <TextView
+                    style="@style/SectionHeaderText"
+                    android:text="@string/tags" />
+
+                <TextView
+                    style="@style/ContentText"
+                    app:joinedText="@{viewModel.recipe.tags}" />
+
+                <TextView
+                    style="@style/SectionHeaderText"
+                    android:text="@string/meal_type" />
+
+                <TextView
+                    style="@style/ContentText"
+                    app:joinedText="@{viewModel.recipe.mealType}" />
+
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- Error message -->
+        <TextView
+            android:id="@+id/tvError"
+            style="@style/ErrorText"
+            android:visibility="@{viewModel.uiState instanceof com.example.kotliin1.ui.RecipeUiState.Error ? View.VISIBLE : View.GONE}"
+            android:text='@{viewModel.uiState instanceof com.example.kotliin1.ui.RecipeUiState.Error ? ((com.example.kotliin1.ui.RecipeUiState.Error) viewModel.uiState).message : ""}'
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/search_input" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

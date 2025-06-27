@@ -74,4 +74,10 @@
     <string name="pass_length">Minimum length is 8</string>
     <string name="enter_contact">Contact number is required</string>
     <string name="invalid_contact">Invalid contact number</string>
+    <string name="enter_recipe_number">Enter recipe number</string>
+    <string name="meal_type">Meal Type:</string>
+    <string name="tags">Tags:</string>
+    <string name="instructions">Instructions:</string>
+    <string name="ingredients">Ingredients:</string>
+    <string name="todo">TODO</string>
 </resources>
