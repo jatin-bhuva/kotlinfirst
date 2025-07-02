@@ -24,6 +24,7 @@
             android:layout_height="match_parent"
             android:text="@string/top"
             android:textColor="@color/black"
+            android:id="@+id/topTxt"
             android:gravity="center_horizontal|center_vertical"/>
 
     </LinearLayout>
