@@ -52,17 +52,7 @@ class Koin : AppCompatActivity(), AndroidScopeComponent {
             override fun afterTextChanged(s: Editable?) {}
         })
 
-//        fun onSearchClick() {
-//            viewModel.recipeId.value?.let {
-//                viewModel.doNetWorkCall(it)
-//            }
-//        }
 
-        lifecycleScope.launchWhenStarted {
-            viewModel.uiState.collectLatest { state ->
-//              Log.d("STATIS",".........$state")
-            }
-        }
     }
 }
 

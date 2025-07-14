@@ -7,14 +7,90 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+
+    <ImageView
+        android:id="@+id/greenImage"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:src="@drawable/rounded_background"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/userImg"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="16dp"
+        android:src="@drawable/btn"
+        app:layout_constraintBottom_toBottomOf="@+id/greenImage"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/greenImage"
+   />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/hello_world"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toRightOf="@id/userImg"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/greenImage" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Developer"
+        app:layout_constraintLeft_toLeftOf="@id/textView3"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView3" />
+
+    <Button
+        android:id="@+id/followBtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintHorizontal_weight="1"
+        android:text="Follow"
+        android:layout_marginStart="16dp"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/addfriend"
+        app:layout_constraintTop_toBottomOf="@id/textView4" />
+
+    <Button
+        android:id="@+id/addfriend"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:text="Add friend"
+        app:layout_constraintBottom_toBottomOf="@id/followBtn"
+        app:layout_constraintLeft_toRightOf="@id/followBtn"
+        app:layout_constraintRight_toLeftOf="@id/message"
+        app:layout_constraintTop_toTopOf="@id/followBtn"
+        app:layout_constraintHorizontal_weight="1"
+       />
+
+    <Button
+        android:id="@+id/message"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="Message"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintBottom_toBottomOf="@id/followBtn"
+        app:layout_constraintLeft_toRightOf="@id/addfriend"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/followBtn"
+      />
 </androidx.constraintlayout.widget.ConstraintLayout>
