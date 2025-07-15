@@ -1,59 +1,87 @@
 package com.example.kotliin1
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
-import android.widget.LinearLayout
-import androidx.activity.enableEdgeToEdge
+import android.widget.EditText
+import android.widget.ProgressBar
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.isVisible
+import androidx.core.widget.addTextChangedListener
+import androidx.lifecycle.ViewModelProvider
+import com.example.kotliin1.databinding.ActivityLession1S3Binding
+import com.example.kotliin1.ui.LoginAction
+import com.example.kotliin1.ui.LoginViewModel
 
 class Lession1_S3 : AppCompatActivity() {
 
-    private lateinit var  btnTop :LinearLayout
-    private lateinit var btnCenter:LinearLayout
-    private lateinit var btnBottom :Button
-    private lateinit var L1: LinearLayout
-    private lateinit var L2 :LinearLayout
-    private lateinit var R1 :LinearLayout
-    private lateinit var R2 :LinearLayout
+    private lateinit var binding: ActivityLession1S3Binding
+
+    private lateinit var viewModel: LoginViewModel
+    private lateinit var email: EditText
+    private lateinit var password: EditText
+    private lateinit var submitBtn: Button
+    private lateinit var progressBar: ProgressBar
+    private lateinit var errorText: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_lession1_s3)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+
+        binding = ActivityLession1S3Binding.inflate(layoutInflater)
+        setContentView(binding.root)
+        binding.lifecycleOwner = this
+
         initializeVariables()
-
-        btnTop.setOnClickListener {
-            L2.visibility = if (L2.visibility == View.VISIBLE) View.GONE else View.VISIBLE
-            R2.visibility =  if (R2.visibility == View.VISIBLE) View.GONE else View.VISIBLE
-        }
-
-        btnCenter.setOnClickListener{
-            L1.visibility = View.VISIBLE;
-            L2.visibility = View.VISIBLE;
-            R1.visibility = View.VISIBLE;
-            R2.visibility = View.VISIBLE
-        }
-        btnBottom.setOnClickListener{
-            L1.visibility = if(L1.visibility == View.VISIBLE) View.GONE else View.VISIBLE;
-            R1.visibility = if(R1.visibility == View.VISIBLE) View.GONE else View.VISIBLE
-        }
+        viewModelObserver()
+        eventListener()
     }
 
     private fun initializeVariables(){
-         btnTop = findViewById(R.id.btnTop);
-         btnCenter = findViewById(R.id.view);
-         btnBottom = findViewById(R.id.btnBottom);
-         L1 = findViewById(R.id.linearLayout);
-         L2 = findViewById(R.id.linearLayout3);
-         R1 = findViewById(R.id.linearLayout2);
-         R2 = findViewById(R.id.linearLayout4);
+        email = findViewById<EditText>(R.id.email)
+        password = findViewById<EditText>(R.id.password)
+        submitBtn = findViewById<Button>(R.id.login)
+        progressBar = findViewById<ProgressBar>(R.id.progress_circular)
+        errorText = findViewById<TextView>(R.id.error)
+        viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
+        binding.viewModel = viewModel
+
+        viewModel.uiState.observe(this) { state ->
+            binding.state = state
+        }
+
+    }
+
+    private fun viewModelObserver() {
+        viewModel.uiState.observe(this) { state ->
+
+            Log.d("Test", state.toString())
+            if (email.text.toString() != state.email) {
+                email.setText(state.email)
+            }
+            if (password.text.toString() != state.passWord) {
+                password.setText(state.passWord)
+            }
+            progressBar.visibility = if (state.isLoading) View.VISIBLE else View.INVISIBLE
+            if (state.loginSuccess) {
+                Toast.makeText(this, "Login successful!", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun eventListener() {
+
+        email.addTextChangedListener {
+            viewModel.handleIntent(LoginAction.EmailChanged(it.toString()))
+        }
+
+        password.addTextChangedListener {
+            viewModel.handleIntent(LoginAction.PasswordChanged(it.toString()))
+        }
+
+        submitBtn.setOnClickListener {
+            viewModel.handleIntent(LoginAction.SubmitLogin)
+        }
     }
 }
