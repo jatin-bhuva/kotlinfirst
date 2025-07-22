@@ -1,5 +1,6 @@
 package com.example.kotliin1
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -44,6 +45,10 @@ class DependencyInjection : AppCompatActivity() {
             viewModel.pagedUsers.collectLatest { pagingData ->
                 adapter.submitData(pagingData)
             }
+        }
+        binding.btn1.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
         }
         lifecycleScope.launch {
             adapter.loadStateFlow.collectLatest { loadStates ->

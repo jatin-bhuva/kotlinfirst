@@ -1,5 +1,6 @@
 package com.example.kotliin1
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -15,6 +16,7 @@ class Lession1_S3 : AppCompatActivity() {
     private lateinit var  btnTop :LinearLayout
     private lateinit var btnCenter:LinearLayout
     private lateinit var btnBottom :Button
+    private lateinit var btnBottom1 :Button
     private lateinit var L1: LinearLayout
     private lateinit var L2 :LinearLayout
     private lateinit var R1 :LinearLayout
@@ -45,12 +47,18 @@ class Lession1_S3 : AppCompatActivity() {
             L1.visibility = if(L1.visibility == View.VISIBLE) View.GONE else View.VISIBLE;
             R1.visibility = if(R1.visibility == View.VISIBLE) View.GONE else View.VISIBLE
         }
+
+        btnBottom1.setOnClickListener {
+            val intent = Intent(this, DependencyInjection::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun initializeVariables(){
          btnTop = findViewById(R.id.btnTop);
          btnCenter = findViewById(R.id.view);
          btnBottom = findViewById(R.id.btnBottom);
+         btnBottom1 = findViewById(R.id.btn1111);
          L1 = findViewById(R.id.linearLayout);
          L2 = findViewById(R.id.linearLayout3);
          R1 = findViewById(R.id.linearLayout2);
